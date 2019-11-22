@@ -169,7 +169,7 @@ class Region:
         ''' Processes HTTP error responses '''
         if data != 400 or data != 409 or data != 405:
             logging.warning("Response from server: " + str(data.status_code) + " " + data.reason + " - " + data.text)
-            print str(data.status_code) + ": " + data.reason
+            print(str(data.status_code) + ": " + data.reason)
             return False
         else:
             logging.debug("Response from server: " + str(data.status_code) + " " + data.reason + " - " + data.text)
