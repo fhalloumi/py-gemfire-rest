@@ -10,7 +10,7 @@ See the License for the specific language governing permissions and limitations 
 
 
 from datetime import datetime
-from Repository import *
+from gemfire.Repository import *
 
 
 class GemfireClient:
@@ -69,7 +69,7 @@ class GemfireClient:
                 return Repository(name, self.base_url, self.user, self.password, type)
         else:
             logging.debug("Repository " + name + " does not exist in the server")
-            print "Repository " + name + " does not exist in the server"
+            print("Repository " + name + " does not exist in the server")
             return False
 
     def list_all_queries(self):
@@ -149,7 +149,7 @@ class GemfireClient:
         ''' Processes HTTP error responses '''
         if data != 400 or data != 409 or data != 405:
             logging.warning("Response from server: " + str(data.status_code) + " " + data.reason + " - " + data.text)
-            print str(data.status_code) + ": " + data.reason
+            print(str(data.status_code) + ": " + data.reason)
             return False
         else:
             logging.debug("Response from server: " + str(data.status_code) + " " + data.reason + " - " + data.text)
