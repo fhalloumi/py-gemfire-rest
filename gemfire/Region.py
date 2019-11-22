@@ -31,7 +31,7 @@ class Region:
         logging.debug("Sending request to " + url)
         fdata = jsonpickle.decode(data.text)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return fdata[self.name]
         else:
             self.error_response(data)
@@ -69,7 +69,7 @@ class Region:
         logging.debug("Sending request to " + url)
         fdata = jsonpickle.decode(data.text)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return fdata["keys"]
         else:
             self.error_response(data)
@@ -81,7 +81,7 @@ class Region:
         data = requests.get(url, auth=(self.user, self.password))
         logging.debug("Sending request to " + url)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return jsonpickle.decode(data.text)
         else:
             self.error_response(data)
@@ -92,7 +92,7 @@ class Region:
         data = requests.get(url, auth=(self.user, self.password))
         logging.debug("Sending request to " + url)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return jsonpickle.decode(data.text)
         else:
             self.error_response(data)
