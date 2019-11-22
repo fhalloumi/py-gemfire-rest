@@ -51,7 +51,7 @@ class GemfireClient:
         rnames = fdata['regions']
         names = [region['name'] for region in rnames]
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return names
         else:
             self.error_response(data)
@@ -78,7 +78,7 @@ class GemfireClient:
         logging.debug("Sending request to " + self.base_url + "/queries")
         fdata = jsonpickle.decode(data.text)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return fdata["queries"]
         else:
             self.error_response(data)
@@ -92,7 +92,7 @@ class GemfireClient:
         data = requests.post(url, data=jvalue, headers=headers, auth=(self.user, self.password))
         logging.debug("Sending request to " + url)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return jsonpickle.decode(data.text)
         else:
             self.error_response(data)
@@ -116,7 +116,7 @@ class GemfireClient:
         data = requests.get(url, auth=(self.user, self.password))
         logging.debug("Sending request to " + url)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return jsonpickle.decode(data.text)
         else:
             self.error_response(data)
@@ -127,7 +127,7 @@ class GemfireClient:
         data = requests.get(url, auth=(self.user, self.password))
         logging.debug("Sending request to " + url)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return jsonpickle.decode(data.text)
         else:
             self.error_response(data)
@@ -140,7 +140,7 @@ class GemfireClient:
         data = requests.post(url, data=jvalue, headers=headers, auth=(self.user, self.password))
         logging.debug("Sending request to " + url)
         if data.status_code == 200:
-            logging.debug("Response from server: " + " ,".join(data))
+            logging.debug("Response from server: " + " ,".join(str(data)))
             return jsonpickle.decode(data.text)
         else:
             self.error_response(data)
